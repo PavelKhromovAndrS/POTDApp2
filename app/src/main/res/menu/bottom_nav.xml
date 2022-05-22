@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/settings"
+        android:id="@+id/picture_of_the_day_menu"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        android:title="@string/potd" />
+    <item
+        android:id="@+id/settings_menu"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/choice_theme" />
+        android:title="@string/settings" />
+
 </menu>

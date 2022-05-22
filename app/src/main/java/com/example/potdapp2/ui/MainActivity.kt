@@ -3,7 +3,9 @@ package com.example.potdapp2.ui
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.example.potdapp2.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 const val ThemeOne = 1
 const val ThemeSecond = 2
@@ -15,6 +17,22 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(getRealStyle(getCurrentTheme()))
+
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
+        bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.picture_of_the_day_menu -> {
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_settingsFragment_to_mainFragment)
+                    true
+                }
+                R.id.settings_menu -> {
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_mainFragment_to_settingsFragment)
+                    true
+                }
+
+                else -> true
+            }
+        }
     }
 
     fun setCurrentTheme(currentTheme: Int) {
