@@ -9,5 +9,9 @@
         android:id="@+id/settings_menu"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/settings" />
+    <item
+        android:id="@+id/epic_menu"
+        android:icon="@drawable/ic_baseline_photo_24"
+        android:title="@string/epic" />
 
 </menu>

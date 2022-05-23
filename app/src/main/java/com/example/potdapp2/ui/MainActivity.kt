@@ -9,6 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 const val ThemeOne = 1
 const val ThemeSecond = 2
+const val API_KEY = "IUVdvJcQ84afIE5PldFC208UfJF9L8P0DqCSqByj"
+const val BASE_URL = "https://api.nasa.gov/"
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private val KEY_SP = "sp"
@@ -27,6 +29,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 }
                 R.id.settings_menu -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.action_mainFragment_to_settingsFragment)
+                    true
+                }
+                R.id.epic_menu -> {
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_mainFragment_to_epicFragment)
                     true
                 }
 

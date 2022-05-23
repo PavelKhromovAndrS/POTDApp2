@@ -12,6 +12,12 @@
         <action
             android:id="@+id/action_mainFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_epicFragment"
+            app:destination="@id/epicFragment" />
+        <action
+            android:id="@+id/action_mainFragment_self"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -20,6 +26,15 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/epicFragment"
+        android:name="com.example.potdapp2.ui.screens.epic.EpicFragment"
+        android:label="fragment_epic"
+        tools:layout="@layout/fragment_epic" >
+        <action
+            android:id="@+id/action_epicFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
