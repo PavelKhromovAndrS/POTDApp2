@@ -49,22 +49,5 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_theme1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/theme_1"
-        app:layout_constraintBottom_toTopOf="@id/button_theme2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_theme2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/theme_2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
