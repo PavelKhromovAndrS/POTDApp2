@@ -2,4 +2,5 @@
 <resources>
     <item name="DefaultMargin" type="dimen">10sp</item>
 
+    <dimen name="some_tv">48sp</dimen>
 </resources>

@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import com.example.potdapp2.R
 import com.example.potdapp2.databinding.FragmentMainBinding
 import com.example.potdapp2.databinding.FragmentSettingsBinding
@@ -37,7 +39,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             parentActivity.setCurrentTheme(ThemeSecond)
             parentActivity.recreate()
         })
+        binding.fabButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Advanced settings", Toast.LENGTH_SHORT).show()
+        }
     }
-
-
 }
