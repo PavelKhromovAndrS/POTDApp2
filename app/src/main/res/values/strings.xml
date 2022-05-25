@@ -9,4 +9,6 @@
     <string name="settings">settings</string>
     <string name="potd">POTD</string>
     <string name="epic">EPIC</string>
+    <string name="hide">hide</string>
+    <string name="hide_description">HIDE DESCRIPTION</string>
 </resources>
