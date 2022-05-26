@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.*
 import androidx.lifecycle.Observer
+import androidx.transition.TransitionManager
 import coil.load
 import com.example.potdapp2.R
 import com.example.potdapp2.databinding.FragmentEpicBinding
@@ -44,8 +45,18 @@ class EpicFragment : Fragment(R.layout.fragment_epic) {
             binding.epicImage.load(url)
             binding.epicTv.text = it[1].caption
         })
-        binding.btn.setOnClickListener {
-            binding.container.transitionToEnd()
+        val root: LinearLayout = view.findViewById(R.id.container)
+
+        val btn:Button = view.findViewById(R.id.btn)
+        val image: ImageView = view.findViewById(R.id.epic_image)
+
+        var isTextVisible = false
+
+        btn.setOnClickListener {
+            isTextVisible = isTextVisible.not()
+
+            TransitionManager.beginDelayedTransition(root)
+            image.visibility = if (isTextVisible) View.VISIBLE else View.GONE
         }
     }
 }

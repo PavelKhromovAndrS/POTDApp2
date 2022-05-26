@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun navigationTo(f: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, f).
-        addToBackStack(null)
+        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, f)
+            .addToBackStack(null)
             .commit()
     }
 

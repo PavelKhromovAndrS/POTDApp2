@@ -6,7 +6,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
 
 
         <TextView
@@ -82,7 +83,7 @@
             android:id="@+id/group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="tv_explanation"
+            app:constraint_referenced_ids="tv_explanation,tv_header,tv_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -93,8 +94,6 @@
             android:layout_height="wrap_content"
             app:barrierDirection="end"
             app:constraint_referenced_ids="tv_hide,tv_explanation" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

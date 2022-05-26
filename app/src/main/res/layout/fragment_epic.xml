@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,30 +11,25 @@
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Open description"
+        android:text="@string/show_hide_epic_image"
         android:layout_margin="@dimen/DefaultMargin"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/epic_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/epic_image"
-        app:cornerRadius="@dimen/DefaultMargin"
+        app:cornerRadius="@dimen/button_radius"
         android:textStyle="normal"/>
-
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/container"
+    <ImageView
+        android:id="@+id/epic_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutDescription="@xml/fragment_epic_scene">
-
-        <ImageView
-            android:id="@+id/epic_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/DefaultMargin"
-            app:layout_constraintBottom_toTopOf="@id/epic_tv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_margin="@dimen/DefaultMargin"
+        app:layout_constraintBottom_toTopOf="@id/epic_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/epic_tv"
@@ -45,8 +41,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/epic_image" />
-
-    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </LinearLayout>
 
