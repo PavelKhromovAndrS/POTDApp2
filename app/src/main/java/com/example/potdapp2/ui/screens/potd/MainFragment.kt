@@ -3,6 +3,9 @@ package com.example.potdapp2.ui.screens.potd
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import coil.load
@@ -30,10 +33,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val binding = FragmentMainBinding.bind(view)
 
         viewModel.pictureOfTheDay.observe(viewLifecycleOwner, Observer {
-                    binding.img.load(it?.url)
-                    binding.tvDescription.text = it?.title
+            binding.img.load(it?.url)
+            binding.tvDescription.text = it?.title
+            binding.tvExplanation.text = it?.explanation
 
         })
+
+        binding.tvHide.setOnClickListener {
+            val group: Group = binding.group
+            group.visibility = View.GONE
+        }
 
     }
 
