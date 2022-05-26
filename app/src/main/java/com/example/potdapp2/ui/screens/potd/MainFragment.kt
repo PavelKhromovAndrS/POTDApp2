@@ -2,12 +2,15 @@ package com.example.potdapp2.ui.screens.potd
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.transition.Slide
+import androidx.transition.TransitionManager
 import coil.load
 import com.example.potdapp2.R
 import com.example.potdapp2.databinding.FragmentMainBinding
@@ -38,10 +41,22 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             binding.tvExplanation.text = it?.explanation
 
         })
+        var isTextVisible = false
 
         binding.tvHide.setOnClickListener {
+
+            isTextVisible = isTextVisible.not()
+
+            TransitionManager.beginDelayedTransition(binding.root, Slide(Gravity.START))
+
             val group: Group = binding.group
-            group.visibility = View.GONE
+            if (isTextVisible) {
+                group.visibility = View.GONE
+            } else{
+                group.visibility = View.VISIBLE
+            }
+
+
         }
 
     }
