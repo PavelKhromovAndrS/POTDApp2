@@ -44,6 +44,8 @@ class EpicFragment : Fragment(R.layout.fragment_epic) {
             binding.epicImage.load(url)
             binding.epicTv.text = it[1].caption
         })
-
+        binding.btn.setOnClickListener {
+            binding.container.transitionToEnd()
+        }
     }
 }
