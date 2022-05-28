@@ -1,19 +1,16 @@
 package com.example.potdapp2.ui.screens.potd
 
-import android.content.Context
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.transition.*
 import coil.load
 import com.example.potdapp2.R
 import com.example.potdapp2.databinding.FragmentMainBinding
-import com.example.potdapp2.ui.MainActivity
-import com.example.potdapp2.ui.ThemeOne
-import com.example.potdapp2.ui.ThemeSecond
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -32,18 +29,48 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMainBinding.bind(view)
 
-        viewModel.pictureOfTheDay.observe(viewLifecycleOwner, Observer {
-            binding.img.load(it?.url)
+        viewModel.pictureOfTheDay.observe(viewLifecycleOwner, {
+            binding.apodImage.load(it?.url)
             binding.tvDescription.text = it?.title
             binding.tvExplanation.text = it?.explanation
 
         })
+        var isTextVisible = false
 
-        binding.tvHide.setOnClickListener {
+        binding.tvShowHide.setOnClickListener {
+
+            isTextVisible = isTextVisible.not()
+
+            TransitionManager.beginDelayedTransition(binding.root, Slide(Gravity.START))
+
             val group: Group = binding.group
-            group.visibility = View.GONE
+
+            if (isTextVisible) {
+                group.visibility = View.GONE
+            } else {
+                group.visibility = View.VISIBLE
+            }
         }
 
-    }
+        var isExpanded = false
 
+        val img: ImageView = binding.apodImage
+
+        img.setOnClickListener {
+            isExpanded = !isExpanded
+            TransitionManager.beginDelayedTransition(
+                binding.root, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
+            val params: ViewGroup.LayoutParams = img.layoutParams
+            params.height =
+                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            img.layoutParams = params
+            img.scaleType =
+                if (isExpanded) ImageView.ScaleType.CENTER_CROP else
+                    ImageView.ScaleType.FIT_CENTER
+        }
+    }
 }

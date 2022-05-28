@@ -2,51 +2,37 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/epic_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/DefaultMargin"
+        tools:ignore="ContentDescription" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Open description"
         android:layout_margin="@dimen/DefaultMargin"
-        app:layout_constraintBottom_toTopOf="@id/epic_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/epic_image"
-        app:cornerRadius="@dimen/DefaultMargin"
-        android:textStyle="normal"/>
+        android:text="@string/show_hide_epic_description"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:cornerRadius="@dimen/button_radius" />
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/container"
+    <TextView
+        android:id="@+id/epic_tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutDescription="@xml/fragment_epic_scene">
-
-        <ImageView
-            android:id="@+id/epic_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/DefaultMargin"
-            app:layout_constraintBottom_toTopOf="@id/epic_tv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/epic_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/DefaultMargin"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/epic_image" />
-
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/DefaultMargin"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
 </LinearLayout>
 

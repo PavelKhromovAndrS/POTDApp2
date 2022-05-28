@@ -3,4 +3,5 @@
     <item name="DefaultMargin" type="dimen">10sp</item>
 
     <dimen name="some_tv">48sp</dimen>
+    <dimen name="button_radius">20sp</dimen>
 </resources>

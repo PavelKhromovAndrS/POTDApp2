@@ -3,8 +3,12 @@ package com.example.potdapp2.ui
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.potdapp2.R
+import com.example.potdapp2.ui.screens.epic.EpicFragment
+import com.example.potdapp2.ui.screens.potd.MainFragment
+import com.example.potdapp2.ui.screens.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 const val ThemeOne = 1
@@ -24,21 +28,27 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.picture_of_the_day_menu -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_settingsFragment_to_mainFragment)
+                    navigationTo(MainFragment())
                     true
                 }
                 R.id.settings_menu -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_mainFragment_to_settingsFragment)
+                    navigationTo(SettingsFragment())
                     true
                 }
                 R.id.epic_menu -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_mainFragment_to_epicFragment)
+                    navigationTo(EpicFragment())
                     true
                 }
 
                 else -> true
             }
         }
+    }
+
+    private fun navigationTo(f: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, f)
+            .addToBackStack(null)
+            .commit()
     }
 
     fun setCurrentTheme(currentTheme: Int) {
