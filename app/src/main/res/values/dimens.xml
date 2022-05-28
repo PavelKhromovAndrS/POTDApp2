@@ -4,4 +4,5 @@
 
     <dimen name="some_tv">48sp</dimen>
     <dimen name="button_radius">20sp</dimen>
+    <dimen name="tv_size">16sp</dimen>
 </resources>
