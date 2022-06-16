@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/DefaultMargin">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/add_edit_text"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:hint="@string/note_edit_text"
+        android:textColor="#989090"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toStartOf="@id/add_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rv_scroll"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_button"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_margin="@dimen/DefaultMargin"
+        android:text="@string/plus_button"
+        android:textStyle="normal"
+        app:cornerRadius="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/add_edit_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rv_scroll"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/rv_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        tools:context=".ui.screens.notes.NotesFragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_edit_text">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_notes"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             />
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
