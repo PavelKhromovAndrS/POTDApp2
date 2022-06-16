@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_mainFragment_self"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -35,6 +38,15 @@
         tools:layout="@layout/fragment_epic" >
         <action
             android:id="@+id/action_epicFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.example.potdapp2.ui.screens.notes.EditNoteFragment"
+        android:label="fragment_edit_note"
+        tools:layout="@layout/fragment_edit_note" >
+        <action
+            android:id="@+id/action_editNoteFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

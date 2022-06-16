@@ -1,12 +1,12 @@
 package com.example.potdapp2.ui
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.example.potdapp2.R
 import com.example.potdapp2.ui.screens.epic.EpicFragment
+import com.example.potdapp2.ui.screens.notes.NotesData
+import com.example.potdapp2.ui.screens.notes.NotesFragment
 import com.example.potdapp2.ui.screens.potd.MainFragment
 import com.example.potdapp2.ui.screens.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     navigationTo(EpicFragment())
                     true
                 }
+                R.id.notes_menu -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, NotesFragment(), "NF")
+                        .addToBackStack(null)
+                        .commit()
+                    true
+                }
 
                 else -> true
             }
@@ -58,7 +64,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         editor.apply()
     }
 
-    fun getCurrentTheme(): Int {
+    private fun getCurrentTheme(): Int {
         val sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE)
         return sharedPreferences.getInt(KEY_CURRENT_THEME, -1)
     }
@@ -69,6 +75,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             ThemeSecond -> R.style.ThemeSecond
             else -> 0
         }
+    }
+    companion object{
+        val notes = mutableListOf<NotesData>()
     }
 }
 
