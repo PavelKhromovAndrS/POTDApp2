@@ -21,6 +21,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
+        android:fontFamily="@font/lugatype"
         android:id="@+id/tv_description"
         style="@style/DescriptionStyle"
         android:layout_width="match_parent"
