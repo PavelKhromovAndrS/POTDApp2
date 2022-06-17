@@ -1,6 +1,12 @@
 package com.example.potdapp2.ui.screens.epic
 
+import android.graphics.Color
+import android.graphics.Typeface.ITALIC
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -42,8 +48,17 @@ class EpicFragment : Fragment(R.layout.fragment_epic) {
                     "/png/" +
                     image +
                     ".png?api_key=$API_KEY"
+
+            val spannable = SpannableString(it[1].caption)
+            it[1].caption.length.let { it1 ->
+                spannable.setSpan(
+                    StyleSpan(ITALIC), 0,
+                    it1, Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                )
+            }
+
             binding.epicImage.load(url)
-            binding.epicTv.text = it[1].caption
+            binding.epicTv.text = spannable
         })
 
         val tv: TextView = binding.epicTv

@@ -1,6 +1,10 @@
 package com.example.potdapp2.ui.screens.potd
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -31,10 +35,21 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         viewModel.pictureOfTheDay.observe(viewLifecycleOwner, {
             binding.apodImage.load(it?.url)
-            binding.tvDescription.text = it?.title
+            val spannable = SpannableString(it?.title)
+            it?.title?.length?.let { it1 ->
+                spannable.setSpan(ForegroundColorSpan(Color.BLUE),0,
+                    it1,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+            }
+
+
+            binding.tvDescription.text = spannable
             binding.tvExplanation.text = it?.explanation
 
         })
+
+        val text = binding.tvShowHide.text
+
+
         var isTextVisible = false
 
         binding.tvShowHide.setOnClickListener {
